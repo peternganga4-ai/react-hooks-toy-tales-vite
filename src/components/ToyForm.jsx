@@ -7,8 +7,8 @@ function ToyForm({ onAddToy }) {
     const form = event.target;
 
     const newToy = {
-      name: form.name.value,
-      image: form.image.value,
+      name: form.elements.name.value,
+      image: form.elements.image.value,
       likes: 0,
     };
 
@@ -23,7 +23,8 @@ function ToyForm({ onAddToy }) {
       .then((toy) => {
         onAddToy(toy);
         form.reset();
-      });
+      })
+      .catch((error) => console.error(error));
   }
 
   return (
